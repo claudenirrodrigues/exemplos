@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="CLIENTE")
@@ -16,9 +17,12 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank(message = "Nome é obrigatório")
+	@Size(max = 60)
 	private String nome;
 	@NotNull(message = "CPF é obrigatório")
+	@Size(max = 12)
 	private Long cpf;
+	@Size(max = 60)
 	private String endereco;
 	
 	
