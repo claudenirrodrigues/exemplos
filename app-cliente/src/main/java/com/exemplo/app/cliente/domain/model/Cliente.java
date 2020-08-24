@@ -20,7 +20,6 @@ public class Cliente {
 	@Size(max = 60)
 	private String nome;
 	@NotNull(message = "CPF é obrigatório")
-	@Size(max = 12)
 	private Long cpf;
 	@Size(max = 60)
 	private String endereco;

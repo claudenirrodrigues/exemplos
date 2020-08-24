@@ -12,5 +12,6 @@ import com.exemplo.app.cliente.domain.model.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	List<Cliente> findByNomeContaining(String nome);
+	Cliente findByCpf(Long cpf);
 
 }

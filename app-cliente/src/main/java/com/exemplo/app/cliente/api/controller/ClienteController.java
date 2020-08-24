@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exemplo.app.cliente.domain.model.Cliente;
 import com.exemplo.app.cliente.domain.repository.ClienteRepository;
+import com.exemplo.app.cliente.domain.service.ClienteService;
 
 
 @RestController
@@ -28,6 +29,9 @@ public class ClienteController {
 	
 	@Autowired
 	ClienteRepository clienteRepository;
+	
+	@Autowired
+	ClienteService clienteService;
 	
 	@GetMapping
 	public List<Cliente> listar() {
@@ -48,7 +52,7 @@ public class ClienteController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED) 
 	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
+		return clienteService.salvar(cliente);
 	}
 	
 	@PutMapping("/{id}")
@@ -59,7 +63,7 @@ public class ClienteController {
 		}
 		
 		cliente.setId(id);
-		cliente = clienteRepository.save(cliente);
+		cliente = clienteService.salvar(cliente);
 		
 		return ResponseEntity.ok(cliente);
 	}
@@ -71,7 +75,7 @@ public class ClienteController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		clienteRepository.deleteById(id);
+		clienteService.excluir(id);
 		return ResponseEntity.noContent().build();
 	}
 
