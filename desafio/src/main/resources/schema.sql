@@ -1,6 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS `desafio_db` DEFAULT CHARACTER SET utf8 ;
-USE `desafio_db` ;
-
 -- -----------------------------------------------------
 -- Table user
 -- -----------------------------------------------------
@@ -11,7 +8,8 @@ CREATE TABLE IF NOT EXISTS user (
   nickname VARCHAR(50) NULL,
   password VARCHAR(255) NULL,
   created_at TIMESTAMP NULL,
-  PRIMARY KEY (id));
+  PRIMARY KEY (id)
+);
 
 
 -- -----------------------------------------------------
@@ -22,7 +20,8 @@ CREATE TABLE IF NOT EXISTS challenge (
   name VARCHAR(100) NULL,
   slug VARCHAR(50) NULL,
   created_at TIMESTAMP NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
+);
 
 
 -- -----------------------------------------------------
@@ -35,7 +34,8 @@ CREATE TABLE IF NOT EXISTS acceleration (
   challenge_id BIGINT NOT NULL,
   created_at TIMESTAMP NULL,
   PRIMARY KEY (id, challenge_id),
-    FOREIGN KEY (challenge_id) REFERENCES challenge (id));
+    FOREIGN KEY (challenge_id) REFERENCES challenge (id)
+);
 
 
 -- -----------------------------------------------------
@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS company (
   name VARCHAR(100) NULL,
   slug VARCHAR(50) NULL,
   created_at TIMESTAMP NULL,
-  PRIMARY KEY (id));
+  PRIMARY KEY (id)
+);
 
 
 -- -----------------------------------------------------
@@ -61,7 +62,8 @@ CREATE TABLE IF NOT EXISTS candidate (
   PRIMARY KEY (user_id, acceleration_id, company_id),
     FOREIGN KEY (user_id) REFERENCES user (id),
     FOREIGN KEY (acceleration_id) REFERENCES acceleration (id),
-    FOREIGN KEY (company_id) REFERENCES company (id));
+    FOREIGN KEY (company_id) REFERENCES company (id)
+);
 
 
 
@@ -75,6 +77,7 @@ CREATE TABLE IF NOT EXISTS submission (
   created_at TIMESTAMP NULL,
   PRIMARY KEY (user_id, challenge_id),
     FOREIGN KEY (challenge_id) REFERENCES challenge (id),
-    FOREIGN KEY (user_id) REFERENCES user (id));
+    FOREIGN KEY (user_id) REFERENCES user (id)
+);
 
 
