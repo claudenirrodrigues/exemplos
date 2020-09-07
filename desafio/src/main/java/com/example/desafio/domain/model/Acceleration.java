@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,7 +35,7 @@ public class Acceleration implements Serializable{
 	@Column(name = "SLUG")
 	private String slug;
 	@ManyToOne
-	@Column(name = "CHALLENGE_ID")
+	@JoinColumn(name = "challenge_id", nullable = false)
 	private Challenge challenge;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;

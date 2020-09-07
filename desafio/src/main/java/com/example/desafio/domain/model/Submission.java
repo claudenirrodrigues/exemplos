@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,13 +16,16 @@ public class Submission implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 	@ManyToOne
+	@JoinColumn(name = "challenge_id", nullable = false)
 	private Challenge challenge;
 	@Column(name = "SCORE")
 	private Float score;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;
+	
 	public User getUser() {
 		return user;
 	}
