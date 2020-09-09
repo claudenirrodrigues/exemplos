@@ -43,9 +43,9 @@ public class User implements Serializable{
 	private String password;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Candidate> candidates;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Submission> submissions;
 	
 	public Long getId() {

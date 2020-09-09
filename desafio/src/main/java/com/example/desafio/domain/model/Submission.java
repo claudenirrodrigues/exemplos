@@ -15,11 +15,11 @@ public class Submission implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
+	//@ManyToOne
+	//@JoinColumn(name = "user_id", nullable = false)
 	private User user;
-	@ManyToOne
-	@JoinColumn(name = "challenge_id", nullable = false)
+	//@ManyToOne
+	//@JoinColumn(name = "challenge_id", nullable = false)
 	private Challenge challenge;
 	@Column(name = "SCORE")
 	private Float score;

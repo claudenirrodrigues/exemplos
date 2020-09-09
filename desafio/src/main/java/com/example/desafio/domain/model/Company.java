@@ -34,7 +34,7 @@ public class Company implements Serializable {
 	private String slug;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;
-	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
 	private List<Candidate> candidates;
 	
 	public Long getId() {

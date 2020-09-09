@@ -34,9 +34,9 @@ public class Challenge implements Serializable{
 	private String slug;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;
-	@OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL)
 	private List<Acceleration> accelerations;
-	@OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL)
 	private List<Submission> submissions;
 	
 	public Long getId() {

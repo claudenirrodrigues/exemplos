@@ -34,12 +34,12 @@ public class Acceleration implements Serializable{
 	@Size(max = 50)
 	@Column(name = "SLUG")
 	private String slug;
-	@ManyToOne
-	@JoinColumn(name = "challenge_id", nullable = false)
+	//@ManyToOne
+	//@JoinColumn(name = "challenge_id", nullable = false)
 	private Challenge challenge;
 	@Column(name = "CREATED_AT")
 	private LocalDateTime createdAt;
-	@OneToMany(mappedBy = "acceleration", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "acceleration", cascade = CascadeType.ALL)
 	private List<Candidate> candidates;
 	
 	public Long getId() {
